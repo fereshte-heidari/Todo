@@ -55,6 +55,15 @@ res.redirect("/");
 
 });
 
+app.post("/delete",function(req,res){
+console.log(req.body.checkbox);
+
+Item.deleteOne({_id:req.body.checkbox},function(err){});
+
+res.redirect("/");
+})
+
+
 app.get("/work", function(req,res){
   res.render("list", {listTitle: "Work List", newListItems: workItems});
 });
